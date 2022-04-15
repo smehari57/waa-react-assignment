@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./Post.css"
+import {Selected} from "../../store/Selected";
 
 const Post = (props) => {
+
+    const setSelected = useContext(Selected);
     return (
-        <div className="Content" onClick={props.setSelected}>
+        <div className="Content" onClick= {() => setSelected(props.id)}>
             <p>Id: {props.id}</p>
             <p>Title: {props.name}</p>
             <p>Content: {props.content}</p>

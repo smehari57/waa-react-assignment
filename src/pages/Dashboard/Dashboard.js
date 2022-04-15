@@ -3,6 +3,7 @@ import "./Dashboard.css";
 import Posts from "../../Containers/Posts/Posts";
 import PostDetails from "../../Components/PostDetails/PostDetails";
 import NewPost from "../../Components/NewPost/NewPost";
+import {Selected} from "../../store/Selected";
 
 const Dashboard = () => {
     const  [selectedState, setSelectedState] = useState(0);
@@ -16,17 +17,20 @@ const Dashboard = () => {
     }
     return(
         <div>
+            <Selected.Provider value={setSelected}>
             <div className="post">
-                <Posts setSelected = {setSelected} fetchFlag={fetchFlag}/>
+                <Posts fetchFlag={fetchFlag}/>
             </div>
 
             <div>
-                <PostDetails id={selectedState} changeFetchFlag={changeFetchFlag}/>
+                <PostDetails
+                    id={selectedState} changeFetchFlag={changeFetchFlag}/>
             </div>
 
             <div>
                 <NewPost changeFetchFlag={changeFetchFlag   }/>
             </div>
+            </Selected.Provider>
         </div>
     )
 }
