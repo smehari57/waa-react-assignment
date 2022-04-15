@@ -13,3 +13,7 @@ const Post = (props) => {
 }
 
 export default Post;
+// to install router
+//npm install react-router-dom
+//npx create-react-app my-first-react// for react
+//npm install axios // for axios

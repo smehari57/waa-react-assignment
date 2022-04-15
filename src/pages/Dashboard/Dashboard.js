@@ -25,7 +25,7 @@ const Dashboard = () => {
             </div>
 
             <div>
-                <NewPost changeFetchFlag={changeFetchFlag}/>
+                <NewPost changeFetchFlag={changeFetchFlag   }/>
             </div>
         </div>
     )

@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import "./NewPost.css"
 import axios from "axios";
-import * as events from "events";
 
 
 const NewPost = (props) => {
@@ -23,11 +22,9 @@ const NewPost = (props) => {
                 setPostState({title: "", content: "", author: ""});
                 props.changeFetchFlag();
             })
-            .catch(error => console.log("Error"))
+            .catch(error => console.log(error.message))
 
     }
-
-
     return (
 
             <div className="NewPost">

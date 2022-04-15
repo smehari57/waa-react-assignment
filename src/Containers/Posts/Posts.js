@@ -16,13 +16,13 @@ const Posts = (props) => {
         fetchPosts();
     }, [props.fetchFlag]);
 
-    const postList = posts.map(post => <Post
-         id={post.id}
-         title={post.title}
-         content={post.content}
-         author={post.author}
-         key={post.id}
-         setSelected={() => {props.setSelected(post.id)}}
+    const postList = posts.map(pos => <Post
+         id={pos.id}
+         title={pos.title}
+         content={pos.content}
+         author={pos.author}
+         key={pos.id}
+         setSelected={() => {props.setSelected(pos.id)}}
     />)
 
     return (
