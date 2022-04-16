@@ -1,38 +1,23 @@
-import React, {useState} from "react";
+import React from "react";
 import "./Dashboard.css";
-import Posts from "../../Containers/Posts/Posts";
-import PostDetails from "../../Components/PostDetails/PostDetails";
-import NewPost from "../../Components/NewPost/NewPost";
-import {Selected} from "../../store/Selected";
+import Header from "../../Containers/Header";
+import "../../Containers/Header.css";
+import PageRoutes from "../PageRoutes";
+
 
 const Dashboard = () => {
-    const  [selectedState, setSelectedState] = useState(0);
-    const [fetchFlag, setFetchFlag] = useState(true);
 
-    const setSelected = (id) => {
-        setSelectedState(id);
-    }
-    const changeFetchFlag = () => {
-        setFetchFlag(!fetchFlag);
-    }
-    return(
-        <div>
-            <Selected.Provider value={setSelected}>
+    return (
+        <React.Fragment>
+            <div className="header">
+                <Header/>
+            </div>
             <div className="post">
-                <Posts fetchFlag={fetchFlag}/>
+            <PageRoutes/>
             </div>
+        </React.Fragment>
 
-            <div>
-                <PostDetails
-                    id={selectedState} changeFetchFlag={changeFetchFlag}/>
-            </div>
-
-            <div>
-                <NewPost changeFetchFlag={changeFetchFlag   }/>
-            </div>
-            </Selected.Provider>
-        </div>
-    )
+    );
 }
 
 export default Dashboard;
